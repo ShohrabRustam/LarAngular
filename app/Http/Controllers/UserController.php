@@ -49,19 +49,21 @@ class UserController extends Controller
             $response ['data']=null;
             $response ['code']=500;
             $response ['message']="could not create tokken !!";
+            return response()->json($response);
         }
         $user = auth()->user();
 
         // $data['tokken']=auth()->claims(['user_id'=>$user->id, 'email'=>$user->email])->attempt($credentials);
         // $user = auth()->user();
-        // $data['token']= auth()->claims([
-        // 'user_id' => $user->id,
-        // 'email' => $user->email
-        // ])->attempt($credentials);
+        $data['token']= auth()->claims([
+        'user_id' => $user->id,
+        'email' => $user->email
+        ])->attempt($credentials);
 
+            // $data['tokken'] = auth()->();
 
         // return $response;
-        // $response['data']= $data;
+        $response['data']= $data;
         $response ['status']=1;
         $response ['code']=200;
         $response ['message']="Login Successfully !!";
