@@ -42,7 +42,8 @@ class UserController extends Controller
             $response ['status']=0;
             $response ['code']=401;
             $response ['message']="Email or Password Incorrect !!";
-            }
+            return response()->json($response);
+        }
 
         }catch(JWTException $e){
             $response ['data']=null;
