@@ -51,8 +51,8 @@ class UserController extends Controller
         }
         $user = auth()->user();
 
-        $data['tokken']=auth()->claims(['user_id'=>$user->id, 'email'=>$user->email])->attempt($credentials);
-        $user = auth()->user();
+        // $data['tokken']=auth()->claims(['user_id'=>$user->id, 'email'=>$user->email])->attempt($credentials);
+        // $user = auth()->user();
         // $data['token']= auth()->claims([
         // 'user_id' => $user->id,
         // 'email' => $user->email
